@@ -1,7 +1,14 @@
 @import url("./_variables.scss");
+@import url("./_fonts.scss");
 
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+}
+
+p {
+    font-size: 4rem;
+    font-family: "Unbounded";
+    font-weight: 300;
 }
