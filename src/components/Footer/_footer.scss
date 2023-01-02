@@ -1,0 +1,68 @@
+@import "../../styles/variables";
+
+footer {
+    background-color: $clr--dark;
+    color: $clr--white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+
+    nav {
+        font-family: "Unbounded", Arial, Helvetica, sans-serif;
+        font-size: 32px;
+        font-weight: 300;
+
+        .navlink {
+            color: $clr--white;
+            text-decoration: none;
+
+            
+        }
+
+        .navlink--selected {
+            color: $clr--green;
+            font-weight: 500;
+        }
+
+        ul {
+            list-style: none;
+
+            li {
+                transition: all 0.2s ease;
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+            
+            li:not(:last-of-type) {
+                margin-bottom: 5px;
+            }
+        }
+    }
+}
+
+#footer--contact-arrow {
+position: relative;    
+max-width: min-content;
+    i {
+        position: absolute;
+        right: 0;
+        top: -7.5px;
+        border: solid $clr--white;
+        border-width: 0 4px 4px 0;
+        display: inline-block;
+        padding: 8px;
+        border-radius: 2px;
+        transform: rotate(-45deg) ;
+        -webkit-transform: rotate(-45deg);
+    }
+
+    span {
+        background-color: $clr--white;
+        display: block;
+        width: 200px;
+        height: 4px;
+        border-radius: 5px;
+    }
+}
