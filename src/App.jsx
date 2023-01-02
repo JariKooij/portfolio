@@ -1,11 +1,21 @@
 import { useWindowBlurChangeTitle } from "./utils/useWindowBlurChangeTitle";
+import Sidebar from "./components/Sidebar/Sidebar";
 
 export default function App() {
   useWindowBlurChangeTitle('Please, come back!');
 
   return (
     <div className="App">
-      <p>Hello world</p>
+      <div id="wrapper">
+        <main>
+
+        </main>
+        <Sidebar />
+      </div>
+      <footer>
+        <p>footer</p>
+      </footer>
+      
     </div>
   );
 }

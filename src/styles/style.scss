@@ -1,5 +1,6 @@
-@import url("./_variables.scss");
-@import url("./_fonts.scss");
+@import "./_variables.scss";
+@import "./_fonts.scss";
+@import "../components/Sidebar/sidebar";
 
 * {
     box-sizing: border-box;
@@ -7,8 +8,15 @@
     margin: 0;
 }
 
-p {
-    font-size: 4rem;
-    font-family: "Unbounded";
-    font-weight: 300;
+#wrapper {
+    // background-color: red;
+    min-height: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    height: 3000px;
+}
+
+footer {
+    background-color: blue;
+    height: 600px;
 }
