@@ -1,6 +1,7 @@
 @import "./_variables.scss";
 @import "./_fonts.scss";
 @import "../components/Sidebar/sidebar";
+@import "../components/Footer/footer";
 
 * {
     box-sizing: border-box;
@@ -29,9 +30,3 @@
     grid-template-columns: 1fr auto;
     height: 3000px;
 }
-
-footer {
-    background-color: blue;
-    height: 600px;
-}
-
