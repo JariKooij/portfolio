@@ -8,8 +8,22 @@
     margin: 0;
 }
 
+// html, body, #root {
+//     height: 100%;
+// }
+
+
+// html::-webkit-scrollbar {
+//     display: none;
+//   }
+  
+//   /* Hide scrollbar for IE, Edge and Firefox */
+//   html {
+//     -ms-overflow-style: none;  /* IE and Edge */
+//     scrollbar-width: none;  /* Firefox */
+//   }
+
 #wrapper {
-    // background-color: red;
     min-height: 100%;
     display: grid;
     grid-template-columns: 1fr auto;
@@ -20,3 +34,4 @@ footer {
     background-color: blue;
     height: 600px;
 }
+
