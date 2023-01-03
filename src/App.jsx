@@ -5,7 +5,6 @@ import Footer from "./components/Footer/Footer";
 
 export default function App() {
   useWindowBlurChangeTitle('Please, come back!');
-
   return (
     <div className="App">
       <BrowserRouter>
@@ -21,7 +20,6 @@ export default function App() {
         </div>
         <Footer />
       </BrowserRouter>
-
     </div>
   );
 }
