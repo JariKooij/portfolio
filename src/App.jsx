@@ -1,10 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useWindowBlurChangeTitle } from "./utils/useWindowBlurChangeTitle";
+import { useWindowBlurChangeTitle } from "./hooks/useWindowBlurChangeTitle";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Footer from "./components/Footer/Footer";
+import CustomCursor from "./components/CustomCursor/CustomCursor";
 
 export default function App() {
   useWindowBlurChangeTitle('Please, come back!');
+  
   return (
     <div className="App">
       <BrowserRouter>
@@ -20,6 +22,7 @@ export default function App() {
         </div>
         <Footer />
       </BrowserRouter>
+      <CustomCursor />
     </div>
   );
 }

@@ -9,60 +9,113 @@ footer {
     padding: 40px;
 
     nav {
-        font-family: "Unbounded", Arial, Helvetica, sans-serif;
+        font-family: $font--unbounded;
         font-size: 32px;
         font-weight: 300;
 
-        .navlink {
-            color: $clr--white;
-            text-decoration: none;
 
-            
-        }
-
-        .navlink--selected {
-            color: $clr--green;
-            font-weight: 500;
-        }
 
         ul {
             list-style: none;
 
             li {
                 transition: all 0.2s ease;
+                
+                
+                a {
+                    position: relative;
+
+                    span {
+                        position: absolute;
+                        top: 50%;
+                        left: 0;
+                        transform: translateY(120%);
+                        display: block;
+                        height: 3px;
+                        width: 0%;
+                        border-radius: 5px;
+                        background-color: $clr--white;
+                        transition: width 0.3s ease;
+                    }
+                }
+
                 &:hover {
-                    transform: scale(1.1);
+                    span {
+                        width: 100%;
+                    };
                 }
             }
             
             li:not(:last-of-type) {
                 margin-bottom: 5px;
             }
+
+            .navlink {
+                color: $clr--white;
+                text-decoration: none;
+            }
+    
+            .navlink--selected {
+                color: $clr--green;
+                font-weight: 500;
+    
+                span {
+                    background-color: $clr--green;
+                }
+            }
         }
     }
 }
 
-#footer--contact-arrow {
-position: relative;    
-max-width: min-content;
-    i {
-        position: absolute;
-        right: 0;
-        top: -7.5px;
-        border: solid $clr--white;
-        border-width: 0 4px 4px 0;
-        display: inline-block;
-        padding: 8px;
-        border-radius: 2px;
-        transform: rotate(-45deg) ;
-        -webkit-transform: rotate(-45deg);
+#footer--contact {
+    margin-bottom: 8px;
+    p {
+        font-family: $font--modernist;
+        font-weight: 700;
+        font-size: 32px;
     }
 
+    a {
+        text-decoration: none;
+        color: $clr--green;
+    }
+}
+
+#footer--contact-arrow {
+    position: relative;    
+    width: 100%;
+
     span {
+        position: relative;
+        float: right;
         background-color: $clr--white;
         display: block;
-        width: 200px;
-        height: 4px;
+        width: 100%;
+        height: 3px;
         border-radius: 5px;
+        margin-top: 16px;
+        transition: width 0.2s ease;
+
+        &::before, &::after {
+            content: " ";
+            height: 3px;
+            width: 15px;
+            background-color: $clr--white;
+            position: absolute;
+            border-radius: inherit;
+            right: 0;
+        }
+
+        &::before {   
+            transform:  translateX(3px) translateY(-4.5px) rotate(45deg);
+        }
+
+        &::after {
+            transform:  translateX(3px) translateY(4.5px) rotate(-45deg);
+        }
+    }
+
+    .hovered {
+        width: 50%;
     }
 }

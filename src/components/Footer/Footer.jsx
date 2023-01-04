@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 export default function Footer() {
+    const [emailHovered, setEmailHovered] = useState(false);
     return(
         <footer>
             <nav>
@@ -13,6 +15,7 @@ export default function Footer() {
                             }
                         >
                             Home
+                            <span/>
                         </NavLink>
                     </li>
                     <li>
@@ -23,6 +26,7 @@ export default function Footer() {
                             }
                         >
                             Work
+                            <span/>
                         </NavLink>
                     </li>
                     <li>
@@ -33,6 +37,7 @@ export default function Footer() {
                             }
                         >
                             About
+                            <span/>
                         </NavLink>
                     </li>
                 </ul>
@@ -40,10 +45,17 @@ export default function Footer() {
 
             <div id="footer--contact">
                 <p>Hit me up!</p>
-                <p><a href="mailto:jarikooij@gmail.com">jarikooij@gmail.com</a></p>
+                <p>
+                    <a 
+                        href="mailto:jarikooij@gmail.com" 
+                        onMouseEnter={() => {setEmailHovered(true)}}
+                        onMouseLeave={() => {setEmailHovered(false)}}
+                    >
+                        jarikooij@gmail.com
+                    </a>
+                </p>
                 <div id="footer--contact-arrow">
-                    <span></span>
-                    <i/>
+                    <span className={emailHovered ? "hovered" : ""}/>
                 </div>
             </div>
         </footer>
