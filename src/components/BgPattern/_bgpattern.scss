@@ -1,0 +1,25 @@
+@import "../../styles/variables";
+
+#bg-stripe-container{
+
+    pointer-events: none;
+    z-index: -1;
+    position: fixed;
+    height: 100%;
+    top: calc(85% - 200px);
+    left: 0;
+    height: 200px;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.bg-stripe-item {
+    height: 240px;
+    width: 80px;
+    background-color: #e6e6e6;
+    transform: rotate(20deg);
+    flex-shrink: 0;
+    margin-right: 90px;
+}

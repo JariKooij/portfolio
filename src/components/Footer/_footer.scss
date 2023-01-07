@@ -13,8 +13,6 @@ footer {
         font-size: 32px;
         font-weight: 300;
 
-
-
         ul {
             list-style: none;
 
@@ -27,9 +25,9 @@ footer {
 
                     span {
                         position: absolute;
-                        top: 50%;
+                        bottom: 0;
                         left: 0;
-                        transform: translateY(120%);
+                        transform: translateY(-50%);
                         display: block;
                         height: 3px;
                         width: 0%;
@@ -41,7 +39,7 @@ footer {
 
                 &:hover {
                     span {
-                        width: 100%;
+                        width: 40%;
                     };
                 }
             }
@@ -68,7 +66,6 @@ footer {
 }
 
 #footer--contact {
-    margin-bottom: 8px;
     p {
         font-family: $font--modernist;
         font-weight: 700;

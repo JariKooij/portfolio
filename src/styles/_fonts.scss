@@ -11,5 +11,12 @@
 
 @font-face {
     font-family: 'Unbounded';
-    src: local('Unbounded'), url(../fonts/Unbounded-VariableFont_wght.ttf) format('truetype');
+    font-weight: 300;
+    src: local('Unbounded'), url(../fonts/Unbounded-Light.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Unbounded';
+    font-weight: 500;
+    src: local('Unbounded'), url(../fonts/Unbounded-Medium.ttf) format('truetype');
 }

@@ -1,22 +1,7 @@
 import { useEffect, useRef } from 'react';
 
-const setTitle = (title) => {
-  document.title = title;
-};
-
-export const useWindowBlurChangeTitle = (titleWhenBlur) => {
+export function useWindowBlurChangeTitle(titleWhenBlur) {
   const previousTitle = useRef();
-
-  const handleWindowBlur = () => {
-    previousTitle.current = document.title;
-    setTitle(titleWhenBlur);
-  };
-
-  const handleWindowFocus = () => {
-    if (previousTitle.current) {
-      setTitle(previousTitle.current);
-    }
-  };
 
   useEffect(() => {
     if (typeof window === 'undefined') {
@@ -26,10 +11,24 @@ export const useWindowBlurChangeTitle = (titleWhenBlur) => {
     window.addEventListener('blur', handleWindowBlur);
     window.addEventListener('focus', handleWindowFocus);
 
+    function handleWindowBlur() {
+      previousTitle.current = document.title;
+      setTitle(titleWhenBlur);
+    }
+
+    function handleWindowFocus() {
+      if (previousTitle.current) {
+        setTitle(previousTitle.current);
+      }
+    }  
+
+    function setTitle(title) {
+      document.title = title;
+    }
+
     return () => {
       window.removeEventListener('blur', handleWindowBlur);
       window.removeEventListener('focus', handleWindowFocus);
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [titleWhenBlur]);
-};
+}
