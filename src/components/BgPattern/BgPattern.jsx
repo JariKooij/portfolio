@@ -13,7 +13,7 @@ export default function BgPattern() {
         docHeight.current = getDocHeight();
         totalDocScrollLength.current = docHeight.current - windowHeight.current;
 
-        document.addEventListener("scroll", handleScroll);
+        document.addEventListener("scroll", () => requestAnimationFrame(updateOnScroll));
         window.addEventListener("resize", handleResize);
 
         initializePattern();  
@@ -27,28 +27,22 @@ export default function BgPattern() {
             updateOnScroll();
         }
 
-        function handleScroll() {
-            requestAnimationFrame(() => {
-                updateOnScroll();
-            });
-        }
-
         function initializePattern() {
-            let totalwidth = windowWidth.current + getScrollOffset();
-            setObjectCount(Math.ceil(totalwidth / (158)));
+            let totalWidth = windowWidth.current + getScrollOffset();
+            setObjectCount(Math.ceil(totalWidth / (158)));
         }
     
         function updateOnScroll() {
             if (bgRef.current === null) return;
     
             const scrollTop = window.pageYOffset;
-            const  scrollPostion  =  scrollTop  /  totalDocScrollLength.current  *  100;
+            const  scrollPostion  =  scrollTop  /  totalDocScrollLength.current;
             
-            bgRef.current.style.transform = `translateX(-${scrollPostion * (getScrollOffset() / 100)}px)`;
+            bgRef.current.style.transform = `translateX(-${scrollPostion * getScrollOffset()}px)`;
         }
         
         return () => {
-            document.removeEventListener("scroll", handleScroll);
+            document.removeEventListener("scroll", () => requestAnimationFrame(updateOnScroll));
             window.removeEventListener("resize", handleResize);
         }
     }, []);
@@ -62,13 +56,13 @@ export default function BgPattern() {
     }
 
     function getScrollOffset() {
-        return ((totalDocScrollLength.current) / windowHeight.current) * windowWidth.current * 0.4;
+        return (totalDocScrollLength.current / windowHeight.current) * windowWidth.current * 0.3;
     }
       
     return (
         <div id="bg-stripe-container" ref={bgRef}>
             { new Array(objectCount).fill().map((x, i) => {
-                return <div key={i}  className="bg-stripe-item"></div>
+                return <div key={i} className="bg-stripe-item"/>
             })}
         </div>
     );

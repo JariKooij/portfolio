@@ -51,8 +51,9 @@ export default function CustomCursor() {
     (navigator.maxTouchPoints > 0) ||
     (navigator.msMaxTouchPoints > 0)) {
       return true;
+    } else {
+      return false;
     }
-    return false;
   }
 
   function toggleCursorVisibility() {
