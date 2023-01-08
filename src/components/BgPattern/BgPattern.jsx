@@ -29,7 +29,14 @@ export default function BgPattern() {
 
         function initializePattern() {
             let totalWidth = windowWidth.current + getScrollOffset();
-            setObjectCount(Math.ceil(totalWidth / (158)));
+            //if (windowsize is good){
+            let objectWidth = windowHeight.current * 0.096;
+            let objectMargin = windowHeight.current * 0.108;
+            // } else {
+            //  set other size
+            //}
+
+            setObjectCount(Math.ceil(totalWidth / (objectWidth + objectMargin)));
         }
     
         function updateOnScroll() {
