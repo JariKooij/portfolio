@@ -36,9 +36,11 @@ export default function BgPattern() {
             if (bgRef.current === null) return;
     
             const scrollTop = window.pageYOffset;
-            const  scrollPostion  =  scrollTop  /  totalDocScrollLength.current;
-            
-            bgRef.current.style.transform = `translateX(-${scrollPostion * getScrollOffset()}px)`;
+            let scrollPostion  =  scrollTop  /  totalDocScrollLength.current;
+            if (scrollPostion > 1) scrollPostion = 1;
+
+            const scrollDistance = scrollPostion * getScrollOffset();
+            bgRef.current.style.transform = `translateX(-${scrollDistance}px)`;
         }
         
         return () => {
