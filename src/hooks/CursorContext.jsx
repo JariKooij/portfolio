@@ -3,20 +3,20 @@ import { useState, useContext, createContext } from "react";
 const CursorContext = createContext();
 const CursorUpdateContext = createContext();
 
-export function useCursor() {
+export const useCursor = () => {
     return useContext(CursorContext);
-}
+};
 
-export function useCursorUpdate() {
+export const useCursorUpdate = () => {
     return useContext(CursorUpdateContext);
-}
+};
 
-export function CursorProvider({children}) {
+export const CursorProvider = ({children}) => {
     const [isHovering, setIsHovering] = useState(false);
 
-    function updateHover() {
+    const updateHover = () => {
         setIsHovering((prev) => !prev);
-    }
+    };
 
     return (
         <CursorContext.Provider value={isHovering}>
@@ -24,5 +24,5 @@ export function CursorProvider({children}) {
                 {children}
             </CursorUpdateContext.Provider>
         </CursorContext.Provider>
-    )
-}
+    );
+};

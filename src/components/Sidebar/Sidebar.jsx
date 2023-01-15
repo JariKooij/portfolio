@@ -3,7 +3,7 @@ import SvgIconLinkedin from "./sidebarIcons/SvgIconLinkedin";
 import SvgIconMail from "./sidebarIcons/SvgIconMail";
 import SvgIconSmile from "./sidebarIcons/SvgIconSmile";
 
-export default function Sidebar() {
+const Sidebar = () => {
     return (
         <div id="sidebar">
             <SvgIconSmile />
@@ -14,4 +14,6 @@ export default function Sidebar() {
             </div>            
         </div>
     );
-}
+};
+
+export default Sidebar;

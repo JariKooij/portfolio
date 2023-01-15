@@ -15,6 +15,6 @@ const SvgIconLinkedin = () => {
             </svg>
         </div>
     );
-}
+};
 
 export default SvgIconLinkedin;

@@ -1,34 +1,32 @@
 import { useEffect, useRef } from 'react';
 
-export function useWindowBlurChangeTitle(titleWhenBlur) {
-  const previousTitle = useRef();
+export const useWindowBlurChangeTitle = (titleWhenBlur) => {
+  	const previousTitle = useRef();
 
-  useEffect(() => {
-    if (typeof window === 'undefined') {
-      return;
-    }
+  	useEffect(() => {
+    	const handleWindowBlur = () => {
+      		previousTitle.current = document.title;
+      		setTitle(titleWhenBlur);
+    	};
 
-    window.addEventListener('blur', handleWindowBlur);
-    window.addEventListener('focus', handleWindowFocus);
+    	const handleWindowFocus = () => {
+      		if (previousTitle.current) {
+        		setTitle(previousTitle.current);
+      		}
+    	}  ;
 
-    function handleWindowBlur() {
-      previousTitle.current = document.title;
-      setTitle(titleWhenBlur);
-    }
+    	const setTitle = (title) => {
+      		document.title = title;
+    	};
 
-    function handleWindowFocus() {
-      if (previousTitle.current) {
-        setTitle(previousTitle.current);
-      }
-    }  
+    	if (typeof window === 'undefined') return;
 
-    function setTitle(title) {
-      document.title = title;
-    }
+    	window.addEventListener('blur', handleWindowBlur);
+    	window.addEventListener('focus', handleWindowFocus);
 
-    return () => {
-      window.removeEventListener('blur', handleWindowBlur);
-      window.removeEventListener('focus', handleWindowFocus);
-    };
-  }, [titleWhenBlur]);
-}
+    	return () => {
+      		window.removeEventListener('blur', handleWindowBlur);
+      		window.removeEventListener('focus', handleWindowFocus);
+    	};
+  	}, [titleWhenBlur]);
+};

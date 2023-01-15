@@ -7,28 +7,30 @@ import { CursorProvider } from "./hooks/CursorContext";
 import BgPattern from "./components/BgPattern/BgPattern";
 
 
-export default function App() {
-  useWindowBlurChangeTitle('Please, come back!');
+const App = () => {
+	useWindowBlurChangeTitle('Please, come back!');
 
-  return (
-    <CursorProvider>
-      <div className="App">
-        <BrowserRouter>
-          <div id="wrapper">
-            <main>
-              <Routes>
-                <Route path="/" element={ <p>home</p> }/>
-                <Route path="/work" element={ <p>work</p> }/>
-                <Route path="/about" element={ <p>about</p> }/>
-              </Routes>
-            </main>
-            <Sidebar />
-          </div>
-          <Footer />
-        </BrowserRouter>
-        <CustomCursor />
-        <BgPattern />
-      </div>
-    </CursorProvider>
-  );
-}
+  	return (
+    	<CursorProvider>
+      		<div className="App">
+        		<BrowserRouter>
+          			<div id="wrapper">
+            			<main>
+							<Routes>
+								<Route path="/" element={ <p>home</p> }/>
+								<Route path="/work" element={ <p>work</p> }/>
+								<Route path="/about" element={ <p>about</p> }/>
+							</Routes>
+            			</main>
+            			<Sidebar />
+          			</div>
+          			<Footer />
+        		</BrowserRouter>
+        		<CustomCursor />
+        		<BgPattern />
+      		</div>
+    	</CursorProvider>
+	);
+};
+
+export default App;

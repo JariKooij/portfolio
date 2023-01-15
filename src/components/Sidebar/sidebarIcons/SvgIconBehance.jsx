@@ -15,6 +15,6 @@ const SvgIconBehance = () => {
             </svg>
         </div>
     );
-}
+};
 
 export default SvgIconBehance;

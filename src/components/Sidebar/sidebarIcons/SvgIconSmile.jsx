@@ -16,6 +16,6 @@ const SvgIconSmile = () => {
 
         </div>
     );
-}
+};
 
 export default SvgIconSmile;

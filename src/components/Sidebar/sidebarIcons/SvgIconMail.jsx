@@ -15,6 +15,6 @@ const SvgIconMail = () => {
             </svg>
         </div>
     );
-}
+};
 
 export default SvgIconMail;

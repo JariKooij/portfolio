@@ -2,7 +2,7 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useCursorUpdate } from "../../hooks/CursorContext";
 
-export default function Footer() {
+const Footer = () => {
     const [emailHovered, setEmailHovered] = useState(false);
     const cursorUpdate = useCursorUpdate();
 
@@ -11,6 +11,10 @@ export default function Footer() {
         {route: "/work", text: "Work"},
         {route: "/about", text: "About"},
     ];
+
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 
     return(
         <footer>
@@ -25,6 +29,7 @@ export default function Footer() {
                                 }
                                 onMouseEnter={cursorUpdate}
                                 onMouseLeave={cursorUpdate}
+                                onClick={scrollToTop}
                             >
                                 {item.text}
                                 <span/>
@@ -51,4 +56,6 @@ export default function Footer() {
             </div>
         </footer>
     );
-}
+};
+
+export default Footer;
