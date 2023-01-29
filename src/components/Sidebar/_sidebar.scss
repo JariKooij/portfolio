@@ -1,23 +1,45 @@
 @import "../../styles/_variables.scss";
 
 #sidebar {
-    background-image: url("../assets/sidebar_bg.jpg");
-    background-size: cover;
-    background-position: center top;
-    height: calc(100vh - 24px);
+    height: calc(100vh - (2 * 32px));
     position: sticky;
-    top: 24px;
-    border-radius: 24px 0px 0px 0px;
+    top: 32px;
+    bottom: 32px;
+    border-radius: 32px 0px 0px 32px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 40px;
-    transition: all 0.2s ease;
+    padding: 32px;
+    overflow: hidden;
+    margin-bottom: 32px; 
+    box-shadow: rgba(0,0,0,0.3) 0 0 20px;
+    -webkit-box-shadow: rgba(0,0,0,0.3) 0px 0 20px;
+    -moz-box-shadow: rgba(0,0,0,0.3) 0 0 20px;
 
     &:hover {
-        padding-left: 50px;
+        #sidebar--img{
+            // padding-left: 50px;
+            transform: scale(1.02);
+            filter: brightness(0.8);
+        }
+
+        .icon--smiley {
+            animation: spin 1s;
+        }
     }
+}
+
+#sidebar--img{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-image: url("../assets/sidebar_bg.jpg");
+    background-size: cover;
+    background-position: left top;
+    transition: all 0.2s ease;
 }
 
 
@@ -58,4 +80,13 @@
 .icon--smiley{
     width: 28px;
     height: 28px;
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
 }

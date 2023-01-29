@@ -6,6 +6,8 @@ import CustomCursor from "./components/CustomCursor/CustomCursor";
 import { CursorProvider } from "./hooks/CursorContext";
 import BgPattern from "./components/BgPattern/BgPattern";
 
+import Home from "./pages/Home/Home";
+
 
 const App = () => {
 	useWindowBlurChangeTitle('Please, come back!');
@@ -17,7 +19,7 @@ const App = () => {
           			<div id="wrapper">
             			<main>
 							<Routes>
-								<Route path="/" element={ <p>home</p> }/>
+								<Route path="/" element={ <Home /> }/>
 								<Route path="/work" element={ <p>work</p> }/>
 								<Route path="/about" element={ <p>about</p> }/>
 							</Routes>

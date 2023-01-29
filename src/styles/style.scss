@@ -4,6 +4,8 @@
 @import "../components/BgPattern/bgpattern";
 @import "../components/Sidebar/sidebar";
 @import "../components/Footer/footer";
+@import "../pages/Home/home";
+@import "../pages/Home/components/HeaderSection/headersection";
 
 * {
     box-sizing: border-box;
@@ -12,28 +14,21 @@
     cursor: none;
 }
 
-body {
-    background-color: $clr--light;
+html {
+    font-size: calc(0.016rem + 1.6vw * 0.0625);
 }
 
-// html, body, #root, .App {
-//     height: 100%;
-// }
+body {
+    background-color: $clr--light;
+    color: $clr--dark;
+}
 
-
-// html::-webkit-scrollbar {
-//     display: none;
-//   }
-  
-//   /* Hide scrollbar for IE, Edge and Firefox */
-//   html {
-//     -ms-overflow-style: none;  /* IE and Edge */
-//     scrollbar-width: none;  /* Firefox */
-//   }
+html, body, #root, .App {
+    height: 100%;
+}
 
 #wrapper {
-    min-height: 100vh;
+    min-height: 100%;
     display: grid;
     grid-template-columns: 1fr auto;
-    height: 3000px;
 }
