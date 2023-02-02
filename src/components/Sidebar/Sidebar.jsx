@@ -1,16 +1,17 @@
-import SvgIconBehance from "./sidebarIcons/SvgIconBehance";
-import SvgIconLinkedin from "./sidebarIcons/SvgIconLinkedin";
-import SvgIconMail from "./sidebarIcons/SvgIconMail";
-import SvgIconSmile from "./sidebarIcons/SvgIconSmile";
+import SvgIconGithub from "../../assets/socialIcons/SvgIconGithub";
+import SvgIconLinkedin from "../../assets/socialIcons/SvgIconLinkedin";
+import SvgIconMail from "../../assets/socialIcons/SvgIconMail";
+import SvgIconSmile from "../../assets/socialIcons/SvgIconSmile";
 
 const Sidebar = () => {
     return (
         <div id="sidebar">
+            <div id="sidebar--img"/>
             <SvgIconSmile />
             <div id="sidebar--icons-bottom">
                 <SvgIconMail />
                 <SvgIconLinkedin />
-                <SvgIconBehance />
+                <SvgIconGithub />
             </div>            
         </div>
     );

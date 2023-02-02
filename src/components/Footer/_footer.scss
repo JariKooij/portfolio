@@ -1,16 +1,22 @@
 @import "../../styles/variables";
 
 footer {
+    width: 100%;
     background-color: $clr--dark;
     color: $clr--white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 40px;
+    font-size: 1.5rem;
+    padding: 64px;
+
+    #footer--content {
+        padding-left: 32px;
+        padding-right: 32px;    
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
     nav {
         font-family: $font--unbounded;
-        font-size: 32px;
         font-weight: 300;
 
         ul {
@@ -45,7 +51,7 @@ footer {
             }
             
             li:not(:last-of-type) {
-                margin-bottom: 5px;
+                margin-bottom: 8px;
             }
 
             .navlink {
@@ -69,7 +75,6 @@ footer {
     p {
         font-family: $font--modernist;
         font-weight: 700;
-        font-size: 32px;
     }
 
     a {
@@ -87,7 +92,7 @@ footer {
         float: right;
         background-color: $clr--white;
         display: block;
-        width: 100%;
+        width: 50%;
         height: 3px;
         border-radius: 5px;
         margin-top: 16px;
@@ -113,6 +118,45 @@ footer {
     }
 
     .hovered {
-        width: 50%;
+        width: calc(50%*0.75);
+    }
+}
+
+@media (width < 960px) {
+    #footer--content {
+        padding: 0px !important;
+    }
+}
+
+@media (width < 680px) {
+    footer {
+        padding: 32px;
+    }
+
+    #footer--content {
+        flex-direction: column;
+
+        ul {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 64px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+            column-gap: 32px;
+            row-gap: 16px;
+
+
+            li {
+                flex-wrap:wrap;
+            }
+        }
+    }
+
+    #footer--contact {
+        margin-bottom: 32px;
+    }
+
+    #footer--contact-arrow {
+        margin-left: auto;
     }
 }
