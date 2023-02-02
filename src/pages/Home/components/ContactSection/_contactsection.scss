@@ -1,0 +1,143 @@
+@import "../../../../styles/variables";
+
+#contactsection {
+    margin-top: 192px;
+    margin-bottom: 192px;
+    width: 100%;
+    font-family: $font--modernist;
+    font-size: 4.5rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    
+    p {
+        width: max-content;
+        display: flex;
+        margin-bottom: -16px;
+    }
+
+    svg {
+        fill: #f8de40;
+        height: 88px;
+        margin-left: 32px;
+    }
+
+    a {
+        text-decoration: none;
+        color: $clr--green;
+    }
+}
+
+.b {
+	fill: #864e20;
+}
+
+.c {
+    fill: #e7c930;
+}
+
+
+
+#contactsection--circle{
+    align-self: center;
+    height: 144px;
+    width: 144px;
+    background-color: $clr--dark;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: wiggle 1.5s ease-in infinite;
+
+    span {
+        width: 80px;
+        height: 4px;
+        border-radius: 5px;
+        background-color: $clr--light;
+        position: relative;
+
+        &::before, &::after {
+            content: " ";
+            position: absolute;
+            background-color: $clr--light;
+            height: 4px;
+            width: 20px;
+            border-radius: 5px;
+        }
+
+        &::before {
+            transform: translate(-25%, -150%) rotate(-45deg);
+        }
+
+        &::after {
+            transform: translate(-25%, 150%) rotate(45deg);
+        }
+    }
+
+    
+}
+
+@keyframes wiggle {
+    0%, 7% {
+      transform: rotateZ(0);
+    }
+    15% {
+      transform: rotateZ(-20deg);
+    }
+    20% {
+      transform: rotateZ(20deg);
+    }
+    25% {
+      transform: rotateZ(-15deg);
+    }
+    30% {
+      transform: rotateZ(7deg);
+    }
+    35% {
+      transform: rotateZ(-2deg);
+    }
+    40%, 100% {
+      transform: rotateZ(0);
+    }
+}
+
+@media (width < 1280px) {
+	#contactsection {
+		font-size: 3.5rem;
+
+		svg {
+		height: 72px;
+		}
+	}
+	#contactsection--circle {
+		display: none;
+	}
+}
+
+@media (width < 960px) {
+	#contactsection {
+		justify-content: center;
+	}
+}
+
+@media (width < 680px) {
+	#contactsection {
+		font-size: 2.5rem;
+
+		svg {
+			height: 56px;
+			margin-left: 16px;
+			}
+	}
+}
+
+@media (width < 380px) {
+	#contactsection {
+		font-size: 2rem;
+
+		svg {
+			height: 40px;
+			margin-left: 8px;
+			}
+	}
+}

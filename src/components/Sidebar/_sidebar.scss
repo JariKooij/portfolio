@@ -2,6 +2,7 @@
 
 #sidebar {
     height: calc(100vh - (2 * 32px));
+    min-height: 300px;
     position: sticky;
     top: 32px;
     bottom: 32px;
@@ -19,7 +20,6 @@
 
     &:hover {
         #sidebar--img{
-            // padding-left: 50px;
             transform: scale(1.02);
             filter: brightness(0.8);
         }
@@ -27,6 +27,36 @@
         .icon--smiley {
             animation: spin 1s;
         }
+    }
+
+    #sidebar--icons-bottom {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .icon {
+        height: 40px;
+        width: 40px;
+        fill: white;
+        opacity: 0.8;
+        pointer-events: all;
+    }
+    
+    .icon--wrapper{
+        transition: all 0.2s ease;
+    
+        &:hover {
+            transform: scale(1.1);
+        }
+    
+        &:not(:last-child) {
+            margin-bottom: 16px;
+        }
+    }
+
+    .icon--smiley{
+        width: 28px;
+        height: 28px;
     }
 }
 
@@ -42,51 +72,17 @@
     transition: all 0.2s ease;
 }
 
-
-
-#sidebar--icons-bottom {
-    display: flex;
-    flex-direction: column;
-}
-
-.sidebar-icon {
-    height: 40px;
-    width: 40px;
-    fill: white;
-    opacity: 0.8;
-    pointer-events: all;
-}
-
-.sidebar-icon--wrapper{
-    transition: all 0.2s ease;
-
-    &:hover {
-        transform: scale(1.1);
-    }
-
-    &:not(:last-child) {
-        margin-bottom: 16px;
-    }
-}
-
-// .sidebar-icon--wrapper:hover {
-//     transform: scale(1.1);
-// }
-
-// .sidebar-icon--wrapper:not(:last-child) {
-//     margin-bottom: 16px;
-// }
-
-.icon--smiley{
-    width: 28px;
-    height: 28px;
-}
-
 @keyframes spin {
     from {
         transform:rotate(0deg);
     }
     to {
         transform:rotate(360deg);
+    }
+}
+
+@media (width < 960px){
+    #sidebar {
+        display: none;    
     }
 }

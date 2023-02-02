@@ -18,40 +18,42 @@ const Footer = () => {
 
     return(
         <footer>
-            <nav>
-                <ul>
-                    {footerNavItems.map((item) => {
-                        return <li key={item.route}>
-                            <NavLink 
-                                to={item.route} 
-                                className={({ isActive }) =>
-                                    (isActive ? "navlink--selected " : "") + "navlink"
-                                }
-                                onMouseEnter={cursorUpdate}
-                                onMouseLeave={cursorUpdate}
-                                onClick={scrollToTop}
-                            >
-                                {item.text}
-                                <span/>
-                            </NavLink>
-                        </li>
-                    })}
-                </ul>
-            </nav>
+            <div id="footer--content">
+                <nav>
+                    <ul>
+                        {footerNavItems.map((item) => {
+                            return <li key={item.route}>
+                                <NavLink 
+                                    to={item.route} 
+                                    className={({ isActive }) =>
+                                        (isActive ? "navlink--selected " : "") + "navlink"
+                                    }
+                                    onMouseEnter={cursorUpdate}
+                                    onMouseLeave={cursorUpdate}
+                                    onClick={scrollToTop}
+                                >
+                                    {item.text}
+                                    <span/>
+                                </NavLink>
+                            </li>
+                        })}
+                    </ul>
+                </nav>
 
-            <div id="footer--contact">
-                <p>Hit me up!</p>
-                <p>
-                    <a 
-                        href="mailto:jarikooij@gmail.com" 
-                        onMouseEnter={() => {setEmailHovered(true); cursorUpdate();}}
-                        onMouseLeave={() => {setEmailHovered(false); cursorUpdate();}}
-                    >
-                        jarikooij@gmail.com
-                    </a>
-                </p>
-                <div id="footer--contact-arrow">
-                    <span className={emailHovered ? "hovered" : ""}/>
+                <div id="footer--contact">
+                    <p>Hit me up!</p>
+                    <p>
+                        <a 
+                            href="mailto:jarikooij@gmail.com" 
+                            onMouseEnter={() => {setEmailHovered(true); cursorUpdate();}}
+                            onMouseLeave={() => {setEmailHovered(false); cursorUpdate();}}
+                        >
+                            jarikooij@gmail.com
+                        </a>
+                    </p>
+                    <div id="footer--contact-arrow">
+                        <span className={emailHovered ? "hovered" : ""}/>
+                    </div>
                 </div>
             </div>
         </footer>

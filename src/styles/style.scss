@@ -1,21 +1,20 @@
-@import "./_variables.scss";
-@import "./_fonts.scss";
+@import "./variables";
+@import "./fonts";
 @import "../components/CustomCursor/customcursor";
 @import "../components/BgPattern/bgpattern";
 @import "../components/Sidebar/sidebar";
 @import "../components/Footer/footer";
 @import "../pages/Home/home";
 @import "../pages/Home/components/HeaderSection/headersection";
+@import "../pages/Home/components/AboutSection/aboutsection";
+@import "../pages//Home/components/WorkSection/worksection";
+@import "../pages/Home/components/ContactSection/contactsection";
 
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
     cursor: none;
-}
-
-html {
-    font-size: calc(0.016rem + 1.6vw * 0.0625);
 }
 
 body {
@@ -25,10 +24,58 @@ body {
 
 html, body, #root, .App {
     height: 100%;
+    width: 100%;
 }
 
 #wrapper {
     min-height: 100%;
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr auto;
+}
+
+#mobile-hamburger {
+    display: none;
+    position: fixed;
+    right: 24px;
+    top: 24px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    background-color: $clr--light;
+    padding: 12px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    box-shadow: 0px 0px 28px -10px rgba(0, 0, 0, 0.4);
+    transition: all 0.2s ease;
+    transform-origin: right top;
+
+    span {
+        background-color: $clr--dark;
+        content: " ";
+        height: 4px;
+        width: 24px;
+        border-radius: 5px;
+
+        &:not(:last-child){ 
+            margin-bottom: 4px;
+            width: 32px;
+        }
+    }
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+@media (width < 960px){
+    #wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (width < 680px) {
+    #mobile-hamburger {
+        display: flex;
+    }
 }

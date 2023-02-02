@@ -108,8 +108,8 @@ const CustomCursor = () => {
   	};
 
   	return <>
-      	<div ref={dotOutline} className={`${touchDevice ? "cursor-hidden " : ""} cursor-dot-outline`}></div>
-      	<div ref={dot} className={`${touchDevice ? "cursor-hidden " : ""} cursor-dot`}></div>
+      	<div ref={dotOutline} className={`${touchDevice ? "cursor-hidden " : ""} cursor-dot-outline`}/>
+      	<div ref={dot} className={`${touchDevice ? "cursor-hidden " : ""} cursor-dot`}/>
     </>
 };
 

@@ -1,0 +1,71 @@
+@import "../../../../styles/variables";
+
+#aboutsection {
+    margin-top: 192px;
+    font-family: $font--modernist;
+    font-size: 1.5rem;
+    max-width: 600px;
+    
+    a {
+        margin-top: 1rem;
+        text-decoration: none;
+        color: $clr--green;
+        font-weight: bold;
+        width: max-content;
+        display: flex;
+        align-items: center;
+
+        &:hover {
+            .arrow {
+                width: 100px;
+            }
+        }
+    }
+
+    .arrow {
+        display: block;
+        margin-left: 1.5rem;
+        margin-top: 5px;
+        border-radius: 5px;
+        width: 80px;
+        height: 3px;
+        background-color: $clr--green;
+        position: relative;
+        transition: 0.2s ease;
+
+        &::before, &::after {
+            content: " ";
+            position: absolute;
+            border-radius: 5px;
+            top: 0;
+            right: 0;
+            height: 3px;
+            width: 12px;
+            background-color: $clr--green;
+        }
+
+        &::before {
+            transform: translate(30%, -110%) rotate(45deg) ;
+        }
+
+        &::after {
+            transform: translate(30%, 110%) rotate(-45deg);
+        }
+    }
+}
+
+@media (width < 680px) {
+    #aboutsection {
+        font-size: 1.2rem;
+
+        a {
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .arrow {
+            margin-left: 0px;
+            margin-top: 16px;
+        }
+    }
+}

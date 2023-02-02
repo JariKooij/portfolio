@@ -1,0 +1,190 @@
+@import "../../../../styles/variables";
+
+#worksection {
+    margin-top: 192px;
+    width: 100%;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+            "title title"
+            "image1 image1"
+            "link1 link1"
+            "image2 image3"
+            "link2 image3";
+
+
+
+            margin-bottom: 10rem;
+    
+    h2 {
+        grid-area: title;
+        justify-self: end;
+        font-family: $font--unbounded;
+        font-weight: bold;
+        font-size: 4rem;
+        color: $clr--green;
+        margin-bottom: 2rem;
+
+        span {
+            color: $clr--dark;
+        }
+    }
+
+    img {
+        width: 100%;
+        display: block;
+        transition: all 0.2s ease;
+
+        &:hover {
+            transform: scale(1.02);
+            filter: contrast(1.1);
+        }
+    }
+    
+
+    .worksection-image {
+        border-radius: 16px;
+        box-shadow: 5px 5px 20px -3px rgba(0,0,0,0.30);
+    }
+
+    a {
+        font-family: $font--modernist;
+        text-decoration: none;
+        color: $clr--dark;
+        font-size: 1.5rem;
+
+        .arrow {
+            display: block;
+            margin-top: .5rem;
+            width: 100px;
+            height: 3px;
+            border-radius: 5px;
+            background-color: $clr--green;
+            position: relative;
+            transition: all 0.2s ease;
+
+            &::before, &::after {
+                content: " ";
+                position: absolute;
+                right: 0;
+                top: 0;
+                height: 3px;
+                width: 16px;
+                background-color: $clr--green;
+                border-radius: 5px;
+            }
+
+            &::after {
+                transform: translate(20%, -150%) rotate(45deg);
+            }
+
+            &::before {
+                transform: translate(20%, 150%) rotate(-45deg);
+            }
+        }
+
+        p {
+            transition: all 0.2s ease;
+        }       
+    }
+}
+
+.projects-link {
+    grid-area: link1;
+    margin-bottom: 3rem;
+    
+    .arrow {
+        margin-left: 64px;
+    }
+}
+
+.projects-link-container {
+    width: max-content;
+
+    &:hover {
+        .arrow {
+            transform: translateX(20%);
+        }
+    }
+}
+
+.art-link {
+    width: 90%;
+    grid-area: link2;
+    align-self: end;
+    margin-bottom: 1rem;
+
+    .projects-link-container {
+        margin-left: auto;
+    }
+
+    .arrow {
+        margin-left: auto;
+    }
+
+    p {
+        margin-right: 48px;
+    }
+}
+
+.worksection-image1 {
+    grid-area: image1;
+    width: 70% !important;
+    overflow: hidden;
+}
+
+.worksection-image2 {
+    grid-area: image2;
+    width: 90% !important;
+    margin-top: 12%;
+}
+
+.worksection-image3 {
+    grid-area: image3;
+    width: 100% !important;
+}
+
+@media (width < 1400px) {
+    #worksection h2{
+        font-size: 3rem;
+    }
+}
+
+@media (width < 680px) {
+    #worksection {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+                "title"
+                "image1"
+                "link1"
+                "image2"
+                "image3"
+                "link2";
+    }
+
+    .worksection-image1, 
+    .worksection-image2, 
+    .worksection-image3 {
+        width: 100% !important;
+    }
+
+    .art-link .projects-link-container {
+        margin-right: 0px;
+    }
+}
+
+
+@media (width < 600px) {
+    #worksection h2{
+        font-size: 2rem;
+        // max-width: 8ch;
+        text-align: right;
+    }
+}
+
+@media (width < 420px) {
+    #worksection h2{
+        max-width: 8ch;
+    }
+}
